@@ -3,6 +3,7 @@
 % Last Edited: October 3rd, 2025
 %
 % Function extracts the EMG and force plate data from a LabChart data file.
+% Mat-file should contain only 1 trial.
 %
 %   Usage: 
 %       xTime, Channel1, Channel2, FP, FCR] = extractSync('filename')
@@ -18,21 +19,6 @@
 
 
 function [xTime, Channel1, Channel2, FP, FCR] = extractSync(filename)
-
-%   Extracts signals from .mat file exported from LabChart. Mat-file should
-%   contain only 1 trial.
-%
-%   Usage: 
-%       xTime, Trigger, Position, Biceps, Triceps] = extractTriphasic('filename')
-%       Specify the exported .mat file as input.
-%
-%   Output:
-%       xTime: Time base for trial
-%       Trigger: Analog trigger channel
-%       Position: Position signal
-%       Triceps: EMG signal
-%       Biceps: EMG signal
-
 
 % Load data file
 datafile = load(filename);
@@ -55,4 +41,5 @@ FCR = datafile.data(chStart(4):chEnd(4));
 
 
 end
+
 
